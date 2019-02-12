@@ -52,17 +52,20 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Wa
 
     private Context mCtx;
     private Activity mactivity;
+   
+//------------------------------------------------
+// New Variables WindowManager and Activity to be able to use WindowManager and getActivity()
     private WindowManager windowManager;
     private List<Wallpaper> wallpaperList;
-
-
+    
+    
     public WallpapersAdapter(Context mCtx, List<Wallpaper> wallpaperList, WindowManager wm, Activity mactivity) {
         this.mCtx = mCtx;
         this.windowManager = wm;
         this.mactivity = mactivity;
         this.wallpaperList = wallpaperList;
     }
-
+//--------------------------------------------------------
     @Override
     public WallpaperViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mCtx).inflate(R.layout.recyclerview_wallpapers, parent, false);
@@ -81,6 +84,14 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Wa
         if (w.isFavourite) {
             holder.checkBoxFav.setChecked(true);
         }
+
+        //--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------
+       
+        //new Funtction so if you click on a Wallpaper it sets as Wallpaper and Lockscreenwallpaper, as response you'll get a Toast
 
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,7 +128,12 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Wa
             }
         });
     }
-
+//--------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------
+    
+    
     @Override
     public int getItemCount() {
         return wallpaperList.size();
